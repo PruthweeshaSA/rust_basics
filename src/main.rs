@@ -7,7 +7,8 @@ fn readfile(filename: String) -> io::Result<String> {
 
 fn main() -> io::Result<()> {
     println!("Hello, please select the file you wish to view:");
-    for entry in fs::read_dir("./src")? {
+    let filelist = fs::read_dir("./src");
+    for entry in filelist? {
         let entry = entry?;
         let path = entry.path();
         println!("{}", path.display());
